@@ -1,0 +1,24 @@
+clickable_minimum_required: 8.0.0
+
+builder: custom
+build:
+- echo 'Make sure to run clickable build --libs once.'
+- echo 'Packaging...'
+
+install_root_data:
+- lwjgl3/build/libs/FeudalTactics-1.3.1.jar
+- ${JAVA_LIB_INSTALL_DIR}/jdk-17.0.2/
+- click/manifest.json
+- click/appname.apparmor
+- click/appname.desktop
+- click/assets
+
+libraries:
+  java:
+    builder: custom
+    build: ${ROOT}/click/download-java.sh
+
+  game:
+    builder: custom
+    build: cd ${ROOT} && PATH=$PATH:${JAVA_LIB_INSTALL_DIR}/jdk-17.0.2/bin ./gradlew lwjgl:dist
+    restrict_arch: amd64

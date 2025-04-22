@@ -145,6 +145,10 @@ www-test/
 nbactions.xml
 nb-configuration.xml
 
+## Clickable (Ubuntu Touch)
+/.clickable/
+/build/
+
 ## OS-Specific:
 .DS_Store
 Thumbs.db
